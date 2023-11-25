@@ -4,13 +4,13 @@
 #include "problem.h"
 #include "vector.h"
 
-//aloca na memoria o vetor de caminhos com tamanho = quantidade de nós
+// Cria o vetor de caminhos com tamanho = quantidade de nós
 Vector *paths_construct(int size);
 
-//desaloca o vetor de caminhos e seu conteudo
+// Libera a memória de vetor de caminhos e seu conteúdo
 void paths_destroy(Vector *p);
 
-//printa os caminhos 
+// Printa os caminhos 
 void paths_print(Vector *paths);
 
 #endif

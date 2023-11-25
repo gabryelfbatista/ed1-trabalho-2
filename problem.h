@@ -19,16 +19,16 @@ typedef struct Problem
 } Problem;
 
 
-//le o arquivo de entrada e preenche o vetor de nós
+// Le o arquivo de entrada e preenche o vetor de nós
 Problem *problem_data_read(FILE *arq);
 
-//desaloca a estrutura problem assim como os nós problema
+// Libera da memória a estrutura Problem assim como os nós problema
 void problem_destroy(Problem *p);
 
-//aloca na memoria os nós problema já preenchendo as informações
+// Cria um nó problema já preenchendo as informações
 ProblemNode *problem_node_construct(int source, int value, int cost);
 
-//desaloca um nó problema
+// Libera a memória de um nó problema
 void problem_node_destroy(ProblemNode *p);
 
 
