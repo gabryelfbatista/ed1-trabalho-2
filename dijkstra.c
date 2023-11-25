@@ -57,8 +57,7 @@ Vector *get_neighbors(Vector *visited, Vector *nodes, int source)
 
 /**
  * Função criada para checar se o vetor de visitados ainda
- * tem algum que não foi visitado, usada para acabar 
- * o loop principal do algoritmo
+ * tem algum que não foi visitado
  * @param visited vetor de visitados
 */
 bool visited_check(Vector *visited)
@@ -69,7 +68,6 @@ bool visited_check(Vector *visited)
     {
         if(vector_get(visited, i) == false)
         {
-            // printf("Ainda tem no sem visitar\n");
             return false;
         }
     }
@@ -93,11 +91,10 @@ Vector *run_dijkstra(Problem *problem)
 
     heap_push(not_visited, origin, origin->origin_cost);
     
-    while (heap_empty(not_visited) == false)
+    while (visited_check(visited) == false || heap_empty(not_visited) == false)
     {
         node_removed = heap_pop(not_visited);
 
-        //verifica se o nó ainda nao foi visitado
         if (vector_get(visited, node_removed->node_value) == false)
         {
             node_removed_cost = node_removed->origin_cost;
@@ -120,7 +117,6 @@ Vector *run_dijkstra(Problem *problem)
 
             vector_destroy(neighbors);
 
-            //marca como visitado depois que adiciona os vizinhos na heap
             vector_set(visited, node_removed->node_value, &was_visited); 
         }               
     };
