@@ -4,7 +4,14 @@
 #include "problem.h"
 #include "vector.h"
 
-
+/**
+ * Nessa função ao construir o nó, eu sempre inicializo
+ * a valor pra origin como 0, pois isso será atualizado apenas no
+ * algoritmo de dijkstra
+ * @param source valor do nó de origem
+ * @param value valor do nó vizinho
+ * @param cost custo de ir para o vizinho 
+*/
 ProblemNode *problem_node_construct(int source, int value, int cost)
 {
     ProblemNode *n = (ProblemNode *)calloc(1, sizeof(ProblemNode));
@@ -26,7 +33,11 @@ Problem *problem_construct()
     return p;
 };
 
-
+/**
+ * Função responsável por ler o arquivo e preencher o 
+ * vetor de nós da estrutura Problem
+ * @param arq arquivo de entrada
+*/
 Problem *problem_data_read(FILE *arq)
 {
     Problem *p = problem_construct();
